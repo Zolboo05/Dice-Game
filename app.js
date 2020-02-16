@@ -7,15 +7,16 @@ var scores = [0, 0];
 var roundScore = 0;
 
 // Шооний аль талаараа буусныг хадгалах хувьсагч, 1-6 гэсэн утгыг
-var dice = Math.floor(Math.random() * 6) + 1;
-var sum = 0;
-//  <div class="player-score" id="score-0">43</div>
-// window.document.querySelector("#score-0").textContent = dice;
-// document.querySelector("#score-1").innerHTML = "<em>Yes.!<em>";
-// Програм эхлэхэд 0 байна
-window.document.querySelector("#score-0").textContent = 0;
-window.document.querySelector("#score-1").textContent = 0;
-document.querySelector("#current-0").textContent = 0;
-document.querySelector("#current-1").textContent = 0;
-document.querySelector(".dice").style.display = "none";
-console.log("Шоо :" + dice);
+// Програм эхлэхэд бэлтгэе
+document.getElementById("score-0").textContent = "0";
+document.getElementById("score-1").textContent = "0";
+document.getElementById("current-0").textContent = "0";
+document.getElementById("current-1").textContent = "0";
+// QuerySelector ni olon torloor DOM-oos haidag uchir udaan baidag uuniig hurdan bolgohiin tuld var diceDom gesen huvisagch hadgalsnaar dahin dahin haih shaardlagagui bolsnoor iluu hurdan ajillana
+var diceDom = document.querySelector(".dice");
+diceDom.style.display = "none";
+document.querySelector(".btn-roll").addEventListener("click", function() {
+  var diceNumber = Math.floor(Math.random() * 6) + 1;
+  diceDom.style.display = "block";
+  diceDom.src = "dice-" + diceNumber + ".png";
+});
