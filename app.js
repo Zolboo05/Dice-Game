@@ -60,10 +60,6 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 
     // Буусан санамсаргүй тоонд харгалзах шооны зургийг вэб дээр гаргаж ирнэ.
     diceDom.src = "dice-" + diceNumber + ".png";
-    document.getElementById("name-" + activePlayer).textContent =
-      winnerCount[activePlayer];
-    document.getElementById("name-" + activePlayer).textContent =
-      winnerCount[activePlayer];
     // Буусан тоо нь 1 ээс ялгаатай бол идэвхтэй тоглогчийн ээлжийн оноог нэмэгдүүлнэ.
     if (diceNumber !== 1) {
       // 1-ээс ялгаатай тоо буулаа. Буусан тоог тоглогчид нэмж өгнө
@@ -91,17 +87,18 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
       scores[activePlayer];
 
     // Уг тоглогч хожсон эсэхийг (оноо нь 100-с их эсэх) шалгах
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
       // Тоглоомыг дууссан төлөвт оруулна
       isNewGame = false;
       // Ялагч гэсэн текстийг нэрнийх нь оронд гаргана
-      if (winnerCount === 0) {
+      if (winnerCount[activePlayer] === 0) {
         winnerCount[activePlayer]++;
       } else {
         winnerCount[activePlayer]++;
       }
       document.getElementById("name-" + activePlayer).textContent =
         winnerCount[activePlayer];
+
       document
         .querySelector(".player-" + activePlayer + "-panel")
         .classList.add("winner");
